@@ -25,7 +25,9 @@ export default function SeatList({ seats }) {
           <>
             <div className="row">
               <div className="col-1">
-                <div className="btn text-yellow seat-column">{seat.hang}</div>
+                <div className="text-yellow seat-column" disable={true}>
+                  {seat.hang}
+                </div>
               </div>
 
               <div className="col-11" key={index}>

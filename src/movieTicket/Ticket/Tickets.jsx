@@ -16,8 +16,12 @@ export default function Tickets() {
   });
 
   const handleBook = () => {
-    alert("Chúc mừng bạn đã đặt vé thành công");
-    dispatch(resetSeat());
+    if (selectedSeats.length === 0) {
+      alert("vui lòng chọn vé");
+      dispatch(resetSeat());
+    } else {
+      alert("Chúc mừng bạn đã đặt vé thành công");
+    }
   };
 
   const dispatch = useDispatch();
@@ -27,6 +31,7 @@ export default function Tickets() {
   };
 
   console.log("selectedSeats", selectedSeats);
+  console.log("selectedSeats length", selectedSeats.length);
   return (
     <div>
       <h3 className="text-white text-center">Danh sách vé đang chọn</h3>
