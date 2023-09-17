@@ -8,6 +8,7 @@ export default function Tickets() {
   const { selectedSeats } = useSelector((state) => {
     return state.movieTicket;
   });
+  const dispatch = useDispatch();
 
   if (selectedSeats) {
   }
@@ -16,15 +17,13 @@ export default function Tickets() {
   });
 
   const handleBook = () => {
-    if (selectedSeats.length === 0) {
-      alert("vui lòng chọn vé");
+    if (selectedSeats.length !== 0) {
       dispatch(resetSeat());
-    } else {
       alert("Chúc mừng bạn đã đặt vé thành công");
+    } else {
+      alert("Vui lòng chọn vé");
     }
   };
-
-  const dispatch = useDispatch();
 
   const handleRemove = (seatNumber) => {
     dispatch(removeSeat(seatNumber));

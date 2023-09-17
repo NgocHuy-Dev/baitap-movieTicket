@@ -1,4 +1,8 @@
-import { REMOVE_SEAT, SELECT_SEAT } from "../constants/movieTicketConstants";
+import {
+  REMOVE_SEAT,
+  RESET_SEAT,
+  SELECT_SEAT,
+} from "../constants/movieTicketConstants";
 
 const initState = {
   selectedSeats: [],
@@ -32,9 +36,14 @@ const movieTicketReducer = (state = initState, action) => {
 
       return { ...state, selectedSeats, totalPrice };
     }
+    case RESET_SEAT: {
+      const selectedSeats = [];
+      const totalPrice = 0;
+      return { ...state, selectedSeats, totalPrice };
+    }
 
     default:
-      break;
+      return state;
   }
 };
 
